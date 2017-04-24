@@ -28,13 +28,13 @@ func NewGraph(size int) *Graph {
 
 type path []int
 
-func (g *Graph) AllMST(root int) []path {
+func (g *Graph) AllSpanningTrees(root int) []path {
 	set := map[int]bool{root: true}
 
-	return g.allMST(root, set)
+	return g.allST(root, set)
 }
 
-func (g *Graph) allMST(root int, set map[int]bool) []path {
+func (g *Graph) allST(root int, set map[int]bool) []path {
 
 	var p []path
 
@@ -46,7 +46,7 @@ func (g *Graph) allMST(root int, set map[int]bool) []path {
 			new_set := cloneSet(set)
 			new_set[a] = true
 
-			childPaths := g.allMST(a, set)
+			childPaths := g.allST(a, set)
 
 			for _, chp := range childPaths {
 				p = append(p, append(chp, root))

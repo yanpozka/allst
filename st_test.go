@@ -11,7 +11,7 @@ func TestNewGraph(t *testing.T) {
 
 	g.PrintBFS(0)
 
-	ps := g.AllMST(0)
+	ps := g.AllSpanningTrees(0)
 
 	for _, p := range ps {
 		t.Log(p)
